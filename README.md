@@ -6,7 +6,7 @@ A personal portfolio website highlighting skills, interests, background, and con
 [View Portfolio Here](https://inthuja-nava.github.io/hello-web/)
 
 ## Screenshot 
-![Portflio Screenshot](./screenshot.png)
+![Portflio Screenshot](screenshot.png)
 
 ## Features 
 - About section
