@@ -17,6 +17,7 @@ A personal portfolio website highlighting skills, interests, background, and con
 
 ## Built With
 - HTML
+- CSS
 
 ## Links
 - [GitHub](https://github.com/inthuja-nava)
