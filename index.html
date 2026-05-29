@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,12 +9,12 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
 
     <!-- CSS Stylesheet -->
     <link rel="stylesheet" href="styles/main.css">
 </head>
-
 
 <body>
 
@@ -33,70 +34,111 @@
     <section class="hero">
         <div class="container hero-inner">
             <p class="hero-label">Welcome to My Portfolio</p>
-            <h1>Inthuja<br><span class="hero-name">Navayogaratnam</span></h1>
+            <h1 class="hero-name">Inthuja<br><span class="hero-accent">Navayogaratnam</span></h1>
             <p class="hero-sub"><em>Developer | Data | Product</em></p>
+            <a href="#about" class="hero-btn">Learn More</a>
         </div>
     </section>
 
 
     <!-- MAIN CONTENT -->
     <main>
-        
-        <!-- Bio Section - About Me -->
-        <section id="about" class="about-section">
-            
-            <!-- Profile Image -->
-            <img src="animated.png" alt="Animated image of Inthuja" width="180"/>
-            
-            <!-- About Me -->
-            <h2>About Me</h2>
-            <p>Hello, my name is Inthuja! I am an aspiring developer and builder working at the intersection of data, science, and software. With a background in biomedical sciences and hands-on experience in product analytics, I’m drawn to problems where careful analysis and thoughtful engineering come together. My path from the lab to the terminal has shaped how I approach problem-solving: <em>the strongest solutions begin with asking the right questions, then using data and technology to answer them with clarity and intention.</em></p>
-            <p>I’m especially interested in building products where insights directly influence what gets created and improved. As I continue expanding my full-stack and data engineering skills, I’m looking for opportunities in product, healthtech, or mission-driven companies where I can contribute across the entire lifecycle: <em>from defining the question to shipping the answer.</em></p>
+
+        <!-- About Me - Bio Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <p class="section-label">ABOUT</p>
+                <h2>About Me</h2>
+                <p class="section-desc">Learn more about my background, experience, and passions.</p>
+
+                <div class="about-card">
+                    <!-- Profile Image -->
+                    <img src="animated.png" alt="Animated image of Inthuja" width="180" class="about-img" />
+
+                    <div class="about-text">
+                        <!-- About Me -->
+                        <p>Hello, my name is Inthuja! I am an aspiring developer and builder working at the intersection
+                            of data, science, and software. With a background in biomedical sciences and hands-on
+                            experience in product analytics, I’m drawn to problems where careful analysis and thoughtful
+                            engineering come together.</p>
+                        <p>My path from the lab to the terminal has shaped how I approach problem-solving: <em>the
+                                strongest solutions begin with asking the right questions, then using data and
+                                technology to answer them with clarity and intention.</em></p>
+                        <p>I’m especially interested in building products where insights directly influence what gets
+                            created and improved. As I continue expanding my full-stack and data engineering skills, I’m
+                            looking for opportunities in product, healthtech, or mission-driven companies where I can
+                            contribute across the entire lifecycle: <em>from defining the question to shipping the
+                                answer.</em></p>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Skills & Interests Section-->
-        <section id="skills-interests" class="skills-section">
-            <h2>Skills & Interests</h2>
-            <ul>
-                <li>Web Development</li>
-                <li>Data Analysis & Visualization</li>
-                <li>SQL & Databases</li>
-                <li>Product Analytics</li>
-                <li>Life Sciences</li>
-            </ul>
+        <section id="skills-interests" class="section section-alt">
+            <div class="container">
+                <p class="section-label">SKILLS & INTERESTS</p>
+                <h2>What I Work With</h2>
+                <p class="section-desc"> A mix of technical skills and domain knowledge I have built over time.</p>
+                <ul class="skills-list">
+                    <li class="skill-tag">Web Development</li>
+                    <li class="skill-tag">Data Analysis & Visualization</li>
+                    <li class="skill-tag">SQL & Databases</li>
+                    <li class="skill-tag">Product Analytics</li>
+                    <li class="skill-tag">Life Sciences</li>
+                </ul>
+            </div>
+            </div>
         </section>
 
         <!-- Contact - Links and Email Form Section -->
-        <section id="contact" class="contact-section">
-            <h2>Let's Connect</h2>
-            <p>Interested in collaborating or just want to connect? Reach out via email or find me here: </p>
-            <p>
-                <a href="https://github.com/inthuja-nava" target="_blank">GitHub</a>
-                <a href="https://www.linkedin.com/in/inthuja-n-6b658a20a/" target="_blank">LinkedIn</a>
-                <a href="resume.pdf" target="_blank">Resume</a>
-            </p>
-            
-            <h3>Send a Message</h3>
-            <form action="#" method="post">
-                <label for="name">Name:</label><br>
-                <input type="text" id="name" name="name"><br><br>
+        <section id="contact" class="section">
+            <div class="container">
+                <p class="section-label">CONTACT</p>
+                <h2>Let's Connect</h2>
+                <p class="section-desc">Interested in collaborating or just want to chat? Find me here or send a message
+                    below.</p>
 
-                <label for="email">Email:</label><br>
-                <input type="email" id="email" name="email"><br><br>
+                <!-- Contact Links -->
+                <div class="contact-links">
+                    <a href="https://github.com/inthuja-nava" target="_blank" class="contact-btn">GitHub</a>
+                    <a href="https://www.linkedin.com/in/inthuja-n-6b658a20a/" target="_blank"
+                        class="contact-btn">LinkedIn</a>
+                    <a href="resume.pdf" target="_blank" class="contact-btn">Resume</a>
+                </div>
 
-                <label for="message">Message:</label><br>
-                <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
-
-                <button type="submit">Send</button>
-            </form>
+                <!-- Contact Form -->
+                <div class="form-card">
+                    <h3 class="form-heading">Send a Message</h3>
+                    <form action="#" method="post" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" placeholder="Your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" placeholder="your@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message:</label>
+                            <textarea id="message" name="message" rows="5" cols="50"
+                                placeholder="Your message"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send</button>
+                    </form>
+                </div>
+            </div>
         </section>
 
     </main>
 
     <!-- FOOTER -->
-    <footer>
-        <p>&copy; 2026 Inthuja Navayogaratnam.</p>
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 Inthuja Navayogaratnam.</p>
+        </div>
     </footer>
 
 </body>
+
 </html>
