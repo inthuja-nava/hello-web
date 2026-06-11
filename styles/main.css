@@ -48,7 +48,7 @@ ul {
   border-top: 3px solid hsl(38, 62%, 52%);
 }
 
-
+/* Flexbox: navbar - logo and links */
 .nav-bar {
   display: flex;
   justify-content: space-between;
@@ -97,6 +97,8 @@ ul {
 }
 
 /* HERO */
+/* Flexbox: center content */
+
 .hero {
   background: linear-gradient(135deg, hsl(345, 55%, 18%) 0%, hsl(345, 48%, 24%) 50%,hsl(20, 40%, 22%)  100%);
   color: white;
@@ -104,7 +106,7 @@ ul {
   text-align: center;
 }
 
-
+/* Flexbox: center content */
 .hero-inner {
   display: flex;
   flex-direction: column;
@@ -208,7 +210,9 @@ ul {
 }
 
 /* ABOUT */
+/* Flexbox: image left + text right - side by side */
 
+/* Flexbox: about card */
 .about-card {
     background: #FFFFFF;
     border-radius: 16px;
@@ -257,6 +261,7 @@ ul {
 
 
 /* SKILLS */
+/* Flexbox: wrapping skills in pill row */
 
 .skills-list {
     display: flex;
@@ -289,7 +294,9 @@ ul {
     box-shadow: 0 4px 20px rgba(90, 20, 30, 0.09);
 }
 
-/* PROJECTS - Grid Gallery */
+/* PROJECTS - Grid: auto-fit gallery */
+
+/* Grid: Project Gallery */
 
 .project-grid {
   display: grid;
@@ -372,6 +379,7 @@ ul {
   margin-bottom: 12px;
 }
 
+/* Project tags inside each project card */
 .project-tags {
   display: flex;
   flex-wrap: wrap;
@@ -390,6 +398,7 @@ ul {
 
 
 /* CONTACT */
+/* Flexbox: contact links row with gap */
 
 .contact-links {
     display: flex;
@@ -442,7 +451,8 @@ ul {
     text-transform: uppercase;
     margin-bottom: 24px;
 }
- 
+
+/* Flexbox: label stacked above input */
 .form-group {
     display: flex;
     flex-direction: column;
