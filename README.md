@@ -40,7 +40,7 @@ Refactored the nav and hero with Flexbox, and added a CSS Grid project gallery. 
 
 Here are some future upgrades I hope to incorporate into my portfolio website: 
 
-- **Project screenshot previews** — replace gradient placeholders with real screenshots
-- **Active nav highlight** — highlight the current section's nav link as you scroll
-- **Working contact form** — connect to Formspree or EmailJS so messages actually send
-- **More CSS Paterns** - incorporating more css patterns that are commonly used
+- **Project screenshot previews** - replace gradient placeholders with real screenshots
+- **Active nav highlight** - highlight the current section's nav link as you scroll
+- **Working contact form** - connect to Formspree or EmailJS so messages actually send
+- **More CSS Paterns** - incorporating more commonly used css patterns 
