@@ -536,6 +536,113 @@ ul {
     letter-spacing: 0.04em;
 }
 
+/* MEDIA QUERIES - TABLET AND DESKTOP */
+
+/* MEDIA QUERY - TABLETS (min-width: 768px) */
+
+@media (min-width: 768px) {
+
+
+
+  .nav-links {
+    display: flex;
+    flex-direction: row;
+    position: static;
+    background: none;
+    padding: 0;
+    gap: 28px;
+  }
+
+  .nav-links li a {
+    padding: 0;
+    font-size: 0.9rem;
+    color: hsl(345, 25%, 70%);
+  }
+
+  .nav-links li a:hover {
+    color: white;
+    background: none;
+  }
+
+  .hero {
+    padding: 88px 0 76px;
+  }
+
+  .section {
+    padding: 64px 0;
+  }
+
+  .about-card {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    padding: 36px;
+    gap: 36px;
+  }
+
+  .about-img {
+    width: 240px;
+    height: 240px;
+  }
+
+  .project-grid { 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+
+  .contact-links {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+
+  .contact-btn {
+    width: auto;
+  }
+
+  .form-card {
+    padding: 36px;
+    max-width: 600px;
+  }
+
+  .submit-btn {
+    width: auto;
+  }
+
+  .section-desc {
+    margin-bottom: 36px;
+  }
+
+}
+
+/* MEDIA QUERY - DESKTOP (min-width: 1024px) */
+
+@media (min-width: 1024px) {
+
+  .hero {
+    padding: 100px 0 88px;
+  }
+
+  .section {
+    padding: 80px 0;
+  }
+
+  .about-card {
+    padding: 40px;
+    gap: 44px;
+  }
+
+  .about-img {
+    width: 280px;
+    height: 280px;
+  }
+
+  .form-card {
+    padding: 40px;
+  }
+}
+
+
 
 /* Google Fonts - API 
 
