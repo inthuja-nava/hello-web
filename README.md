@@ -5,8 +5,11 @@ A personal portfolio website highlighting skills, interests, background, and con
 ## Live Site 
 [View Portfolio Here](https://inthuja-nava.github.io/hello-web/)
 
-## Screenshot 
-![Portflio Screenshot](screenshot.png)
+## Screenshot
+
+| Mobile (375px) | Tablet (768px) | Desktop (1024px) |
+| :---: | :---: | :---: |
+| <div style="max-height: 400px; overflow-y: auto;"><img src="images/mobile.png" alt="Mobile" width="100%"></div> | <div style="max-height: 400px; overflow-y: auto;"><img src="images/tablet.png" alt="Tablet" width="100%"></div> | <div style="max-height: 400px; overflow-y: auto;"><img src="images/desktop.png" alt="Desktop" width="100%"></div> |
 
 ## Features 
 - About 
@@ -33,6 +36,11 @@ Styled the page with Montserrat (clean and versatile across weights), a burgundy
 ## Week 3 Reflection - Layout Upgrade
 
 Refactored the nav and hero with Flexbox, and added a CSS Grid project gallery. I used Flexbox for single-row/column components (nav, skills tags, button rows) because it handles one-dimensional spacing cleanly. Grid was the right choice for the project cards because `repeat(auto-fit, minmax(280px, 1fr))` makes the layout fully responsive with no media queries needed.
+
+
+## Week 4 Reflection - Go Responsive
+
+Refactored the stylesheet to mobile-first: base styles now target 375px, with min-width breakpoints at 768px and 1024px layering on top. Used clamp() for fluid hero and heading sizes so type scales smoothly without jumps, and added a hamburger nav that collapses on mobile and expands on tablet. The main challenge was preventing "Navayogaratnam" from overflowing on small screens. I fixed it by tightening letter-spacing and reducing the clamp() minimum on mobile.
 
 ---
 
