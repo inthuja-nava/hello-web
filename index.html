@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inthuja Navayogaratnam — Portfolio</title>
+    <meta name="description" content="Inthuja Navayogaratnam — developer portfolio. Projects in HTML, CSS, JavaScript, and full-stack work.">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,8 +13,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
 
-    <!-- CSS Stylesheet -->
-    <link rel="stylesheet" href="styles/main.css">
+    <!-- No <link rel="stylesheet"> here — src/style.css is imported
+         from src/main.js instead. Vite treats CSS as a module too. -->
 </head>
 
 <body>
@@ -22,18 +23,19 @@
     <header class="site-header">
         <nav class="nav-bar container">
             <a href="#" class="logo">I<span class="logo-accent">N</span></a>
-            
-            <!-- BONUS: Hamburger button — visible on mobile only -->
+
+            <!-- Hamburger button — visible on mobile only -->
             <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
                 <span class="hamburger-bar"></span>
                 <span class="hamburger-bar"></span>
                 <span class="hamburger-bar"></span>
             </button>
-            
+
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills-interests">Skills & Interests</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#repos">GitHub</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -59,11 +61,10 @@
                 <p class="section-label">ABOUT</p>
                 <h2>About Me</h2>
                 <p class="section-desc">Learn more about my background, experience, and passions.</p>
-                <!-- <p class="section-desc">Developer, Data Thinker, and Problem Solver.</p> -->
 
                 <div class="about-card">
                     <!-- Profile Image -->
-                    <img src="animated.png" alt="Animated image of Inthuja" width="180" class="about-img" />
+                    <img src="animated.png" alt="Animated illustrated portrait of Inthuja" width="180" class="about-img" />
 
                     <div class="about-text">
                         <!-- About Me -->
@@ -96,78 +97,104 @@
                     <li class="skill-tag">SQL & Databases</li>
                     <li class="skill-tag">Product Analytics</li>
                     <li class="skill-tag">Life Sciences</li>
-                    <!-- <li class="skill-tag">Git & Version Control</li> -->
+                    <li class="skill-tag">Git & Version Control</li>
                 </ul>
             </div>
         </section>
 
-        <!-- Projects - Highlight 3 -->
-        <!-- Grid Gallery -->
+        <!-- ============================================================
+             PROJECTS SECTION — now fully dynamic.
+             Do not change the id attributes — src/main.js targets them.
+
+             IDs to know:
+               #filter-group  → container for the filter buttons
+               #search-input  → live search field
+               #results-count → "Showing X of Y projects" text
+               #project-grid  → EMPTY — JavaScript fills this with cards
+             ============================================================ -->
         <section id="projects" class="section">
             <div class="container">
                 <p class="section-label">PROJECTS</p>
                 <h2>Projects I've Built</h2>
-                <p class="section-desc">Projects I've worked on in the past.</p>
+                <p class="section-desc">Everything from first-week HTML basics to a full-stack build — click a category to filter, or search by name.</p>
 
-                <div class="project-grid">
-                    <!-- Project 1 - J.W. Foods Website -->
-                    <article class="project-card">
-                        <a href="https://github.com/inthuja-nava/jwfoods-website" target="_blank" class="project-thumb project-thumb-featured">
-                            <span class="project-thumb-label">View on GitHub</span>
-                        </a>
-                        <div class="project-body">
-                            <h3 class="project-title">J.W. Foods Website</h3>
-                            <p class="project-desc">Responsive single-page website for a GTA food distributor, featuring a live Delivery Cost Calculator powered by a Python Flask backend and SQLite database.</p>
-                            <ul class="project-tags">
-                                <li class="project-tag">HTML5</li>
-                                <li class="project-tag">CSS3</li>
-                                <li class="project-tag">JavaScript</li>
-                                <li class="project-tag">Python</li>
-                                <li class="project-tag">Flask</li>
-                                <li class="project-tag">SQLite</li>
-                            </ul>
-                        </div>
-                    </article>
+                <!-- Controls row: filter buttons + search -->
+                <div class="controls">
 
-                    <!-- Project 2 - Jiffy Listing Website -->
-                    <article class="project-card">
-                        <a href="https://github.com/inthuja-nava/Jiffy-Listing-Website" target="_blank" class="project-thumb project-thumb-2" aria-label="View project on GitHub">
-                            <span class="project-thumb-label">View on GitHub</span>
-                        </a>
-                        <div class="project-body">
-                            <h3 class="project-title">Jiffy Listing Website</h3>
-                            <p class="project-desc">Multi-page listing website built for the Women In Tech Web Development Program. Includes a home page, about page, and login page with custom styling.</p>
-                            <ul class="project-tags">
-                                <li class="project-tag">HTML5</li>
-                                <li class="project-tag">CSS3</li>
-                                <li class="project-tag">Bootstrap</li>
-                            </ul>
-                        </div>
-                    </article>
+                    <!-- Filter buttons — data-filter drives the JavaScript logic -->
+                    <div class="filter-group" id="filter-group">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="html">HTML</button>
+                        <button class="filter-btn" data-filter="css">CSS</button>
+                        <button class="filter-btn" data-filter="javascript">JavaScript</button>
+                    </div>
 
-                    <!-- Project 3 - Expense Tracker -->
-                    <article class="project-card">
-                        <a href="https://github.com/inthuja-nava/expense-tracker" target="_blank" class="project-thumb project-thumb-3" aria-label="View project on GitHub">
-                            <span class="project-thumb-label">View on GitHub</span>
-                        </a>
-                        <div class="project-body">
-                            <h3 class="project-title">Expense Tracker</h3>
-                            <p class="project-desc">Interactive expense tracking app built with vanilla JavaScript. Add, categorize, and remove transactions with a live running balance — no frameworks.</p>
-                            <ul class="project-tags">
-                                <li class="project-tag">HTML5</li>
-                                <li class="project-tag">CSS3</li>
-                                <li class="project-tag">JavaScript</li>
-                            </ul>
-                        </div>
-                    </article>
-                </div>  
+                    <!-- Search input -->
+                    <div class="search-wrapper">
+                        <span class="search-icon">&#x2315;</span>
+                        <input
+                            type="text"
+                            id="search-input"
+                            class="search-input"
+                            placeholder="Search projects… (Esc to clear)"
+                            autocomplete="off"
+                        >
+                    </div>
+
+                    <!-- Results count — updated by JavaScript -->
+                    <p class="results-count" id="results-count"></p>
+
+                </div>
+
+                <!-- Project grid — starts empty, filled by src/projects.js -->
+                <div class="project-grid" id="project-grid">
+                    <!-- Cards are inserted here by renderProjects() -->
+                </div>
             </div>
         </section>
 
-    
+        <!-- ============================================================
+             GITHUB REPOSITORIES SECTION
+             Fetches live data from the GitHub API — no hardcoded cards.
+             Do not change the id attributes; src/main.js + src/api.js target them.
+             ============================================================ -->
+        <section id="repos" class="section section-alt">
+            <div class="container">
+                <p class="section-label">GITHUB</p>
+                <h2>GitHub Repositories</h2>
+                <p class="section-desc">Live from the GitHub API — push a new repo and it shows up here automatically, no edits required.</p>
+
+                <!-- Loading indicator — visible while the fetch is in progress -->
+                <div class="loading-indicator" id="repos-loading">
+                    <span class="spinner"></span>
+                    <span>Fetching repositories…</span>
+                </div>
+
+                <!-- Error message — hidden unless the fetch fails -->
+                <div class="repos-error" id="repos-error" hidden>
+                    <p>Something went wrong loading repositories.</p>
+                    <button class="retry-btn" id="repos-retry">Try Again</button>
+                </div>
+
+                <!-- Results count — updated by JavaScript -->
+                <p class="results-count" id="repos-count"></p>
+
+                <!-- Repo grid — starts empty, filled by src/main.js -->
+                <div class="project-grid" id="repos-grid">
+                    <!-- Repo cards are inserted here -->
+                </div>
+
+                <!-- "View all on GitHub" link -->
+                <div class="repos-footer">
+                    <a href="https://github.com/inthuja-nava" target="_blank" rel="noopener noreferrer" class="view-all-link">
+                        View all repositories on GitHub &#x2192;
+                    </a>
+                </div>
+            </div>
+        </section>
 
         <!-- Contact - Links and Email Form Section -->
-        <section id="contact" class="section section-alt">
+        <section id="contact" class="section">
             <div class="container">
                 <p class="section-label">CONTACT</p>
                 <h2>Let's Connect</h2>
@@ -188,16 +215,16 @@
                     <form action="#" method="post" class="contact-form">
                         <div class="form-group">
                             <label for="name">Name:</label>
-                            <input type="text" id="name" name="name" placeholder="Your name">
+                            <input type="text" id="name" name="name" placeholder="Your name" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email:</label>
-                            <input type="email" id="email" name="email" placeholder="your@email.com">
+                            <input type="email" id="email" name="email" placeholder="your@email.com" required>
                         </div>
                         <div class="form-group">
                             <label for="message">Message:</label>
                             <textarea id="message" name="message" rows="5" cols="50"
-                                placeholder="Your message"></textarea>
+                                placeholder="Your message" required></textarea>
                         </div>
                         <button type="submit" class="submit-btn">Send</button>
                     </form>
@@ -210,9 +237,13 @@
     <!-- FOOTER -->
     <footer class="site-footer">
         <div class="container">
-            <p>&copy; 2026 Inthuja Navayogaratnam.</p>
+            <p>&copy; 2026 Inthuja Navayogaratnam. Built with HTML, CSS, JavaScript, and Vite.</p>
         </div>
     </footer>
+
+    <!-- ONE module entry point. Every other file is pulled in through
+         import statements inside main.js — Vite resolves the rest. -->
+    <script type="module" src="/src/main.js"></script>
 
 </body>
 
