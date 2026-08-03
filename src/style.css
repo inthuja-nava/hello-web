@@ -401,7 +401,8 @@ body {
   gap: 24px;
 }
 
-.project-card {
+.project-card,
+.card {
   background: var(--white);
   border-radius: 16px;
   box-shadow: var(--shadow-md);
@@ -410,7 +411,8 @@ body {
   transition: transform var(--speed), box-shadow var(--speed);
 }
 
-.project-card:hover {
+.project-card:hover,
+.card:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-lg);
 }
@@ -432,6 +434,20 @@ body {
 }
 
 .project-thumb-3 {
+  background: linear-gradient(135deg, hsl(15, 55%, 35%) 0%, hsl(25, 60%, 58%) 100%);
+}
+
+/* Tech-based gradients — used by the dynamic project cards so every
+   card gets a consistent thumbnail without needing a real screenshot */
+.project-thumb.tech-html {
+  background: linear-gradient(135deg, hsl(345, 55%, 25%) 0%, hsl(345, 45%, 35%) 50%, hsl(38, 60%, 48%) 100%);
+}
+
+.project-thumb.tech-css {
+  background: linear-gradient(135deg, hsl(38, 70%, 44%) 0%, hsl(38, 62%, 58%) 100%);
+}
+
+.project-thumb.tech-javascript {
   background: linear-gradient(135deg, hsl(15, 55%, 35%) 0%, hsl(25, 60%, 58%) 100%);
 }
 
@@ -460,6 +476,20 @@ body {
   padding: 20px;
 }
 
+/* Small pill above the title — "Week 1", "Independent Project", etc. */
+.project-label {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 100px;
+  background: var(--burg-light);
+  color: var(--burg-mid);
+  margin-bottom: 10px;
+}
+
 .project-title {
   font-size: 1rem;
   font-weight: 700;
@@ -479,6 +509,8 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .project-tag {
@@ -489,6 +521,229 @@ body {
   border-radius: 6px;
   background-color: var(--burg-light);
   color: var(--burg-mid);
+  text-transform: capitalize;
+}
+
+.project-tag.tech-css {
+  background-color: var(--gold-light);
+  color: var(--gold-dark);
+}
+
+.project-tag.tech-javascript {
+  background-color: var(--burg);
+  color: white;
+}
+
+.card-link {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--burg);
+  text-decoration: none;
+  transition: color var(--speed);
+}
+
+.card-link:hover {
+  color: var(--gold-dark);
+}
+
+/* Empty state — shown when a filter/search returns nothing */
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 48px 20px;
+  color: var(--text-muted);
+}
+
+.empty-state p:first-child {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+}
+
+/* PROJECT CONTROLS — filter buttons + search */
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.filter-btn {
+  font-family: 'Montserrat', sans-serif;
+  padding: 9px 20px;
+  min-height: 40px;
+  border-radius: 100px;
+  border: 1.5px solid var(--border);
+  background: var(--white);
+  color: var(--burg);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background-color var(--speed), color var(--speed), border-color var(--speed), transform var(--speed);
+}
+
+.filter-btn:hover {
+  border-color: var(--burg);
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  background-color: var(--burg);
+  border-color: var(--burg);
+  color: white;
+}
+
+.search-wrapper {
+  position: relative;
+  max-width: 360px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  color: var(--text);
+  background-color: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 100px;
+  padding: 10px 16px 10px 38px;
+  outline: none;
+  transition: border-color var(--speed), box-shadow var(--speed);
+}
+
+.search-input::placeholder {
+  color: hsl(345, 6%, 66%);
+}
+
+.search-input:focus {
+  border-color: var(--gold-dark);
+  box-shadow: 0 0 0 3px hsl(38, 62%, 52%, 0.15);
+}
+
+.results-count {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+/* GITHUB REPOSITORIES SECTION */
+
+.loading-indicator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 32px 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.loading-indicator.hidden {
+  display: none;
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2.5px solid var(--border);
+  border-top-color: var(--burg);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.repos-error {
+  text-align: center;
+  padding: 32px 20px;
+  color: var(--text-muted);
+}
+
+.retry-btn {
+  margin-top: 14px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 10px 24px;
+  min-height: 40px;
+  border: 1.5px solid var(--burg);
+  border-radius: 100px;
+  background: transparent;
+  color: var(--burg);
+  cursor: pointer;
+  transition: background-color var(--speed), color var(--speed);
+}
+
+.retry-btn:hover {
+  background-color: var(--burg);
+  color: white;
+}
+
+.repo-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.repo-badges {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.lang-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: var(--gold-light);
+  color: var(--gold-dark);
+}
+
+.star-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.repos-footer {
+  text-align: center;
+  margin-top: 28px;
+}
+
+.view-all-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--burg);
+  transition: color var(--speed);
+}
+
+.view-all-link:hover {
+  color: var(--gold-dark);
 }
 
 /* CONTACT */
@@ -694,6 +949,17 @@ body {
   .project-grid { 
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 24px;
+  }
+
+  .controls {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .results-count {
+    margin-left: auto;
   }
 
   .contact-links {
