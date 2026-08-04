@@ -65,6 +65,20 @@ body {
     line-height: 1.7;
     color: var(--text);
     background-color: var(--bg);
+    transition: background-color var(--speed), color var(--speed);
+}
+
+/* JS-added — dark mode overrides. Because every color in this file
+   references a --variable instead of a hardcoded value, redefining
+   the variables here re-themes the whole site automatically. */
+body.dark-mode {
+    --bg:           hsl(345, 20%, 10%);
+    --bg-alt:       hsl(345, 18%, 14%);
+    --white:        hsl(345, 15%, 16%);
+    --border:       hsl(345, 15%, 24%);
+    --text:         hsl(345, 10%, 92%);
+    --text-body:    hsl(345, 8%, 78%);
+    --text-muted:   hsl(345, 6%, 60%);
 }
 
 /* LAYOUT UTILITIES*/
@@ -110,6 +124,29 @@ body {
 
 .logo-accent { 
   color: var(--gold);
+}
+
+/* Groups the theme toggle and hamburger together on the right */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  min-width: 40px;
+  min-height: 40px;
+  border-radius: 50%;
+  transition: background-color var(--speed);
+}
+
+.theme-toggle:hover {
+  background-color: hsla(0, 0%, 100%, 0.12);
 }
 
 /* Hamburger Menu - Mobile */
@@ -183,6 +220,12 @@ body {
 }
 
 .nav-links li a:hover {
+    color: white;
+    background-color: var(--burg-mid);
+}
+
+/* JS-added — highlights the nav link for the section currently in view */
+.nav-links li a.active {
     color: white;
     background-color: var(--burg-mid);
 }
@@ -408,7 +451,21 @@ body {
   box-shadow: var(--shadow-md);
   border: 1px solid var(--border);
   overflow: hidden;
-  transition: transform var(--speed), box-shadow var(--speed);
+  transition: transform var(--speed), box-shadow var(--speed), opacity 0.5s ease;
+}
+
+/* JS-added — cards start hidden/shifted down, then fade+rise into place
+   the moment they scroll into view (see initScrollAnimations in main.js) */
+.project-card,
+.card {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.project-card.is-visible,
+.card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .project-card:hover,
@@ -914,6 +971,11 @@ body {
 
   .nav-links li a:hover {
     color: white;
+    background: none;
+  }
+
+  .nav-links li a.active {
+    color: var(--gold);
     background: none;
   }
 
