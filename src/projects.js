@@ -93,7 +93,7 @@ export const projects = [
    `tech` tag visually highlighted to match the filter category.
    ============================================================= */
 export const projectCard = ({ title, tech, label, tags, desc, link }) => `
-  <article class="project-card" data-tech="${tech}">
+  <article class="project-card" data-tech="${tech}" style="display:flex; flex-direction: column; transform-style: preserve-3d; transform: translateZ(-70px) rotateY(18deg); box-shadow: 0 0 20px rgba(0,0,0,0.2);">
     <a href="${link}" target="_blank" rel="noopener" class="project-thumb tech-${tech}" aria-label="View ${title} on GitHub">
       <span class="project-thumb-label">View on GitHub</span>
     </a>
