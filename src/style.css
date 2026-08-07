@@ -439,18 +439,13 @@ body.dark-mode {
 /* Grid: Project Gallery */
 
 .project-grid {
-  display: flex;
+  display: grid;
   grid-template-columns: 1fr;
   gap: 24px;
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-  scroll-padding: 0 20px;
-  max-height: 500px;
 }
 
 .project-card,
 .card {
-  min-width: 280px;
   background: var(--white);
   border-radius: 16px;
   box-shadow: var(--shadow-md);
